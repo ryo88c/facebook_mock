@@ -1,199 +1,87 @@
 @CHARSET "UTF-8";
+/* Yahoo fonts.css 2.8.0r4
+http://developer.yahoo.net/yui/license.txt */
+body{font:13px/1.231 arial,helvetica,clean,sans-serif;*font-size:small;*font:x-small;}select,input,button,textarea,button{font:99% arial,helvetica,clean,sans-serif;}table{font-size:inherit;font:100%;}pre,code,kbd,samp,tt{font-family:monospace;*font-size:108%;line-height:100%;}
+/* Elements */
+body{margin:0;padding:0;font-family:"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ",Meiryo,Arial,Helvetica,sans-serif;}
+/** Link */
+a:link,a:visited{text-decoration: none;}
+a:focus{outline: 1px solid #EEE;}
+textarea:focus,input:focus{outline:none;border-color:#333;}
+/** Text */
+h1{margin-top:1.5em;padding-bottom:2em;font-size:189%;}
+h2{margin:2em 0 1em;font-size:116%;}
+h3{font-size:100%;}
+p{padding:0;margin:0.5em 0;}
+blockquote{margin:1em 0 1em 20px;padding:1px 20px;border:1px solid #DDD;}
+pre{padding:10px 20px;border-left:6px solid #DDD;overflow:auto;width:90%;_width:95%;text-align:left;}
+em{font-weight: bold;font-style: normal;}
+strong{}
+/** List */
+ul,ol{margin: 1em 30px;padding: 0;list-style-position: outside;}
+ul ul,ul ol,ul ol,ol ol{margin: 0.3em 0 0.3em 15px;}
+/** form */
+form{margin:0;}
+fieldset{padding:1px 0;border:none;}
+legend{padding:0 10px;}
+input,textarea{padding:0.2em;border-width:1px;border-style:solid;}
+textarea{padding:0.5em 10px;}
+input.submit,input.button{padding:2px 5px;border:none;font-size:100%;font-weight:bold;text-transform:uppercase;}
+input.submit:focus,input.button:focus{outline:none;}
+input.radio{border:none;background-image:none;}
+/** Table */
+table{margin:0;border:1px solid #CCC;}
+caption{padding-bottom:0.3em;}
+th,td{padding:0.3em 10px;border-collapse:separate;border-spacing:1px;}
+th{border-right:1px solid #DDD;}
+td{border-width:0 1px;border-style:solid;}
+/** Others */
+hr{margin: 1.5em 0;border: none;border-top: 1px dotted #CCC;}
 
-body {
-	background-color: #fff;
-	margin: 40px;
-	font-family: Lucida Grande, Verdana, Sans-serif;
-	font-size: 14px;
-	color: #4F5155;
-}
+/* Color scheme */
+html{background-color:#FFF;}
+body{color:#111;background-color:#FFF;}
+a:link{color: #666;}
+a:visited{color: #666;}
+a:hover{color: #999;}
+h1,h2{color:#000;}
+blockquote{border-color:#DDD;color:#444;}
+pre{border-color:#DDD;background-color:#f5f5f5;}
+em{color:#C00;}
+form{}
+legend{background-color:#FFF;}
+input,textarea{border-color:#DDD #EEE #EEE #DDD;background-color:#FFF;}
+input:hover,textarea:hover{border-color:#00a0dd;box-shadow:0 0 8px rgba(82, 168, 236, 0.5);-moz-box-shadow:0 0 8px rgba(82, 168, 236, 0.5);-webkit-box-shadow:0 0 8px rgba(82, 168, 236, 0.5);}
+input.submit{color:#FFF;background-color:#01b0f0;}
+input.submit:hover{background-color:#000;}
+input.button{color:#FFF;background-color:#57b1af;}
+input.button:hover{background-color:#000;}
+body input.disabled{color:#f0f0f0;background-color:#DDD;}
+body input.disabled:hover{background-color:#DDD;}
+input.radio{background-color:transparent;}
+table{border-color:#CCC;background-color:#FFF;}
+th{border-color:#DDD;color:#333;background-color:#f5f5f5;}
+td{border-color:#EEE}
+hr{border-color:#CCC}
+.error,.required{color:red;}
 
-a {
-	color: #003399;
-	background-color: transparent;
-	font-weight: normal;
-}
 
-a:visited {
-	color: #003399;
-	background-color: transparent;
-	text-decoration: none;
-}
+/* Context */
 
-a:hover {
-	color: #000;
-	text-decoration: none;
-	background-color: transparent;
-}
+body.center{text-align:center;}
 
-h1 {
-	color: #333;
-	background-color: #efefef;
-	font-weight: normal;
-	font-size: 22px;
-	margin: 0 0 15px 0;
-	padding: 3px 2px 3px 10px;
-}
+/** Loading */
+body input.loading{padding-right:1em;padding-left:1em;background:#e16745 url(images/loading.gif) scroll no-repeat center;text-indent:-10000px;}
+body input.loading:hover{padding-right:1em;padding-left:1em;background:#e16745 url(images/loading.gif) scroll no-repeat center;text-indent:-10000px;}
+p.loading{background:#FFF url(images/loading.gif) scroll no-repeat left;padding-left:16px;}
+/** Outband link */
+a.outband{margin-right:0.5em;display:block;float:left;overflow:hidden;width:16px;background:url(images/icons/world.png) scroll no-repeat center;text-indent:-10000px;}
+a.outband:hover{background-image:url(images/icons/world_go.png);}
 
-h2 {
-	background-color: transparent;
-	border-bottom: 1px solid #D0D0D0;
-	color: #444;
-	font-size: 16px;
-	font-weight: bold;
-	margin: 24px 0 2px 0;
-	padding: 5px 0 6px 0;
-}
+/** Error */
+.error,.required{margin-top:5px;font-size:80%;}
 
-h3 {
-	background-color: transparent;
-	color: #333;
-	font-size: 14px;
-	font-weight: bold;
-	margin: 22px 0 12px 0;
-	padding: 0 0 0 0;
-}
-
-h4 {
-	background-color: transparent;
-	color: #444;
-	font-size: 14px;
-	font-weight: bold;
-	margin: 22px 0 0 0;
-	padding: 0 0 0 0;
-}
-
-img {
-	margin: auto;
-	padding: 0;
-}
-
-code {
-	font-family: Monaco, Verdana, Sans-serif;
-	font-size: 12px;
-	background-color: #f9f9f9;
-	border: 1px solid #D0D0D0;
-	color: #002166;
-	display: block;
-	margin: 14px 0 14px 0;
-	padding: 12px 10px 12px 10px;
-}
-
-pre {
-	font-family: Monaco, Verdana, Sans-serif;
-	font-size: 12px;
-	background-color: #f9f9f9;
-	border: 1px solid #D0D0D0;
-	color: #002166;
-	display: block;
-	margin: 14px 0 14px 0;
-	padding: 12px 10px 12px 10px;
-}
-
-dfn {
-	font-family: Lucida Grande, Verdana, Geneva, Sans-serif;
-	color: #00620C;
-	font-weight: bold;
-	font-style: normal;
-}
-
-var {
-	font-family: Lucida Grande, Verdana, Geneva, Sans-serif;
-	color: #8F5B00;
-	font-weight: bold;
-	font-style: normal;
-}
-
-samp {
-	font-family: Lucida Grande, Verdana, Geneva, Sans-serif;
-	color: #480091;
-	font-weight: bold;
-	font-style: normal;
-}
-
-kbd {
-	font-family: Lucida Grande, Verdana, Geneva, Sans-serif;
-	color: #A70000;
-	font-weight: bold;
-	font-style: normal;
-}
-
-ul {
-	padding: 0 0 0 18px;
-	margin: 8px 0 12px 0;
-}
-
-li {
-	padding: 0;
-	margin: 0 0 6px 0;
-}
-
-li p {
-	margin-left: 0;
-	margin-right: 0;
-}
-
-form {
-	margin: 0;
-	padding: 0;
-}
-
-.input {
-	font-family: Lucida Grande, Verdana, Geneva, Sans-serif;
-	font-size: 11px;
-	color: #333;
-	border: 1px solid #B3B4BD;
-	width: 100%;
-	font-size: 11px;
-	height: 1.5em;
-	padding: 0;
-	margin: 0;
-}
-
-.textarea {
-	font-family: Lucida Grande, Verdana, Geneva, Sans-serif;
-	font-size: 14px;
-	color: #143270;
-	background-color: #f9f9f9;
-	border: 1px solid #B3B4BD;
-	width: 100%;
-	padding: 0;
-	margin: 0;
-}
-
-.select {
-	background-color: #fff;
-	font-size: 11px;
-	font-weight: normal;
-	color: #333;
-	padding: 0;
-	margin: 0 0 3px 0;
-}
-
-.checkbox {
-	background-color: transparent;
-	padding: 0;
-	border: 0;
-}
-
-.submit {
-	background-color: #000;
-	color: #fff;
-	font-weight: normal;
-	font-size: 10px;
-	border: 1px solid #fff;
-	margin: 0;
-	padding: 1px 5px 2px 5px;
-}
-
-input:hover {
-	background-color: #eeffff;
-}
-
-input:focus {
-	background-color: #eeeeff;
-}
-
-input:active {
-	background-color: #eeeeee;
+/** Context */
+a img{
+    border:none;
 }
