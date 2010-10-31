@@ -11,12 +11,15 @@ class App_Resource_Execute_Graph extends BEAR_Resource_Execute_Adaptor{
      */
     private $_fb;
 
+    private $_methods = array('read' => 'GET', 'create' => 'POST', 'update' => 'PUT', 'delete' => 'DELETE');
+
     /**
      * Requester
      */
     function request(){
         $uri = str_replace('graph://', '/', $this->_config['uri']);
-        return $this->_fb->api($uri, $this->_config['values']);
+        return $this->_fb->api($uri, $this->_methods[$this->_config['method']], $this->_config['values']);
+
     }
 
     /**

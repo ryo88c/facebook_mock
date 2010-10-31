@@ -7,9 +7,7 @@
 require_once 'App.php';
 
 /**
- * Canvas
- *
- * Facebook Integration > キャンバスページURL
+ * 抽出リクエストの処理(AJAX)
  *
  * @package Page
  * @author  HAYASHI Ryo<ryo@spais.co.jp>
@@ -33,16 +31,11 @@ class Page_Cooccurrence extends App_Page
 
         $me = $this->_resource->read(array('uri' => 'graph://me'))->getBody();
         $this->injectArg('me', $me);
-        $message = 'test Ryo Hayashi';
-        $this->injectArg('message', $message);
     }
 
-    public function _onInit(array $args){
-        $result = $this->_resource->create(array('uri' => 'graph://me/feed', 'values' => array('message' => $args['message'], 'name' => '612662563')))->getBody();
-        //$result = $this->_resource->read(array('uri' => 'graph://me/feed'))->getBody();
-        $this->set('result', $result);
-    }
-
+    /**
+     * required me
+     */
     public function onInit(array $args){
         $fb = BEAR::dependency('App_Fb');
         $_likes = $this->_resource->read(array('uri' => 'graph://me/likes'))->getBody();
@@ -99,6 +92,7 @@ class Page_Cooccurrence extends App_Page
 
     public function onException(Exception $e){
         if(preg_match('/^\(#803\)/', $e->getMessage())){
+            // いない userid 指定してるっぽいのでスルーする
         }else{
             $this->set('error', $e->getMessage());
             $this->output('json');

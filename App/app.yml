@@ -7,11 +7,12 @@ core:
     id: 'app'
     version: 0.0.1
     appId: 'YOUR APP ID'
-    secret: 'YOUR APP SECRET'
+    secret: 'YOUR SECRET'
+    req_perms: 'YOUR PERMISSIONS'
 
 BEAR_Cache:
   # int  キャッシュアダプター 0 なし | 1 PEAR::Cache_Lite | 2 MEMCACHE | 3 APC
-  adaptor: 1
+  adaptor: 3
   # path: dsn | file path | memcache host(s)
   #   - localhost
 

@@ -36,12 +36,7 @@ class Page_Index extends App_Page
      */
     public function onInit(array $args)
     {
-        // RSS resource
-        $uri = 'http://rss.excite.co.jp/rss/excite/odd';
-        $options['pager'] = 5;
-        $params = array('uri' => $uri, 'values' => array(), 'options' => $options);
-        $this->_resource->read($params)->set('news');
-        $this->set('time', date('n/j H:i'));
+        $this->header->redirect('/canvas/');
     }
 
     /**

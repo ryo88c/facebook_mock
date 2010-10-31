@@ -1,47 +1,39 @@
 <?php
 /**
- * @APP@
+ * アプリケーションページ基底クラス
  *
  * @category   BEAR
  * @package    App
  * @subpackage Page
- * @author     $Author: anonymous$ <username@example.com>
- * @license    unknown http://www.example.com/
- * @version    SVN: Release: $Id:$
- * @link       http://www.example.com/
- */
-/**
- * アプリケーションページ
- *
- * @category   BEAR
- * @package    App
- * @subpackage Page
- * @author     $Author: koriyama@bear-project.net $ <username@example.com>
- * @license    unknown http://www.example.com/
- * @version    SVN: Release: $Id: Page.php 1260 2009-12-08 14:41:23Z koriyama@bear-project.net $
- * @link       http://www.example.com/
+ * @author     HAYASHI Ryo <ryo@spais.co.jp>
+ * @version    0.1.0
  * @abstract
  */
 abstract class App_Page extends BEAR_Page
 {
 
     /**
-     *  セッション
-     *
+     * セッション
      * @var BEAR_Session
      */
     protected $_session;
 
     /**
      * リソースアクセス
-     *
      * @var BEAR_Resource
      */
     protected $_resource;
 
     /**
+     * permission のチェック(無ければ許可ページにリダイレクト)
+     * @param array $permissions
+     */
+    protected function checkPermission(array $permissions){
+
+    }
+
+    /**
      * コンストラクタ
-     *
      * @param array $config 設定
      */
     function __construct(array $config)
@@ -51,7 +43,6 @@ abstract class App_Page extends BEAR_Page
 
     /**
      * インジェクト
-     *
      * @return void
      */
     public function onInject()
@@ -63,7 +54,6 @@ abstract class App_Page extends BEAR_Page
 
     /**
      * 出力
-     *
      * @return void
      */
     public function onOutput()
@@ -73,19 +63,10 @@ abstract class App_Page extends BEAR_Page
 
     /**
      * 例外
-     *
      * @return void
      */
     public function onException(Exception $e){
         //p($e->getMessage());
         throw $e;
-    }
-
-    /**
-     * セッションタイムアウト
-     *
-     */
-    public function onSessionTimeout()
-    {
     }
 }

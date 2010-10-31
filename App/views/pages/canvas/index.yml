@@ -1,15 +1,13 @@
 default:
   metas: |
-    <meta name="keywords" content="keywords1, keywords2, keywords3" />
-    <meta name="description" content="Describe here..." />
-    <meta name="robots" content="index" />
+    <meta name="description" content="趣味の合う人を探すよ" />
     <link rel="stylesheet" type="text/css" href="/css/default.css" />
-    <link rel="alternate" type="application/rss+xml" title="Example RSS Channel" href="index.rss" />
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <script type="text/javascript" src="/js/default.js"></script>
-  title:  BEAR App
+  title:  趣味合うよね
   header: elements/main_header.tpl
   footer: <hr><div align="center">Copyright 2008 BEAR all rights reserved.</div>
+  js:
+    enable: true
+    page: canvas.js
 mobile:
     metas: |
       <meta name="keywords" content="keywords1, keywords2, keywords3" />

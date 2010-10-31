@@ -1,10 +1,11 @@
+Options +Multiviews
 # App
 
 # <Change Here>
 # 0:Live >1:Debug
-SetEnv bearmode 1
+SetEnv bearmode 0
 # include path project, PEAR
-php_value include_path "/var/www/facebook/mock:/usr/share/php:."
+php_value include_path "/var/www/facebook/cooccurrence:/usr/share/php:."
 # </Change Here>
 
 # BEAR
