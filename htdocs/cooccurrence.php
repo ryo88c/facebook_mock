@@ -23,7 +23,6 @@ class Page_Cooccurrence extends App_Page
     public function onInject()
     {
         parent::onInject();
-
         $session = BEAR::dependency('App_Fb')->getSession();
         if(empty($session)){ // Not connect
             $this->onException(new Exception('Not connect'));
@@ -38,22 +37,24 @@ class Page_Cooccurrence extends App_Page
      */
     public function onInit(array $args){
         $fb = BEAR::dependency('App_Fb');
-        $_likes = $this->_resource->read(array('uri' => 'graph://me/likes'))->getBody();
+        $_likes = $this->_resource->read(array('uri' => sprintf('graph://%d/likes', $args['me']['id'])))->getBody();
         $myLikes = array();
         foreach($_likes['data'] as $act){
             $myLikes[] = $act['id'];
         }
         $myCnt = count($myLikes);
 
-        $rows = $_friends = array();
-        $friends = $this->_resource->read(array('uri' => 'graph://me/friends'))->getBody();
+        $rows = $_friends = $requests = array();
+        $friends = $this->_resource->read(array('uri' => sprintf('graph://%d/friends', $args['me']['id'])))->getBody();
         foreach($friends['data'] as $i => $friend){
-            $profile = $this->_resource->read(array('uri' => 'graph://'.$friend['id']))->getBody();
             //if($i > 5) break;
-            if(isset($profile['error'])) continue;
-            $profiles[$friend['id']] = $profile;
-            $_likes = $this->_resource->read(array('uri' => sprintf('graph://%d/likes', $friend['id'])))->getBody();
+            $requests[] = array('url' => sprintf('/%d/likes', $friend['id']));
+        }
+        $results = $fb->multiRead($requests);
 
+        $requests = array();
+        foreach($results as $i => $_likes){
+            if(empty($_likes['data'])) continue;
             $friendLikes = array();
             $likes = $myLikes;
             foreach($_likes['data'] as $act){
@@ -68,7 +69,14 @@ class Page_Cooccurrence extends App_Page
                 if(in_array($like, $friendLikes) && in_array($like, $myLikes)) $and ++;
             }
             if($and / $or <= 0) continue;
-            $rows[$friend['id']] = $and / $or;
+            $rows[$friends['data'][$i]['id']] = $and / $or;
+            $requests[] = array('url' => '/'.$friends['data'][$i]['id']);
+        }
+
+        $_profiles = $fb->multiRead($requests);
+        $profiles = array();
+        foreach($_profiles as $profile){
+            $profiles[$profile['id']] = $profile;
         }
 
         $result = array();

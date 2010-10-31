@@ -11,7 +11,7 @@
 class App_Fb extends BEAR_Factory{
 
     function factory(){
-        return new Facebook(array(
+        return new App_Facebook(array(
           'appId'  => $this->_config['info']['appId'],
           'secret' => $this->_config['info']['secret'],
           'cookie' => true
